@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>click</title>
+      <script>
+        let perclick = 1, amount = 0;
+      function clicked() {
+        amount += perclick;
+        document.getElementById("amount").innerHTML = amount;
+        document.getElementById("extra").innerHTML = "extra clicks: " + (perclick - 1)
+      }
+      </script>
+  </head>
+  <body>
+
+    <button onclick="clicked()">hey guys</button>
+    <p id="amount">amount of your stuffs</p>
+    
+    <hr />
+    <h3>shop</h3>
+    
+    <button>extra clicks</button>
+    <p id="extra">extra clicks: 0</p>
+    <br>
+    
+  </body>
+</html>
