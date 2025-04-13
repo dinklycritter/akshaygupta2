@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="ka-GE">
   <head>
+    <script>
+    function topbutton() {
+document.getElementById('john').src='joe.jpg';document.getElementById('top').style.display='none';document.getElementById('bottom').style.display='block';
+      window.alert("what")
+}
+      function bottombutton() {
+document.getElementById('john').src='goe.jpg';document.getElementById('bottom').style.display='none';document.getElementById('top').style.display='block';window.alert=('what');
+        window.alert("what")
+      }
+      </script>
     <title>what</title>
   </head>
   <h3 style="border: 2px solid slateblue;padding:10px;margin:10px;font-family:garamond" title="what">what</h3><br>
@@ -9,7 +19,7 @@
   <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
   <br>
   <br>
-  <button id="top" style="display:block" onclick="document.getElementById('john').src='joe.jpg';document.getElementById('top').style.display='none';document.getElementById('bottom').style.display='block'">what (wh)</button>
-  <button id="bottom" style='display:none' onclick="document.getElementById('john').src='goe.jpg';document.getElementById('bottom').style.display='none';document.getElementById('top').style.display='block'">what (wh)</button> 
+  <button id="top" style="display:block" onclick="topbutton()">what (wh)</button>
+  <button id="bottom" style='display:none' onclick="document.getElementById('john').src='goe.jpg';document.getElementById('bottom').style.display='none';document.getElementById('top').style.display='block';window.alert=('what')">what (wh)</button> 
   <img id="john" src="goe.jpg" style="width:234px">
 </html> 
