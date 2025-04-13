@@ -9,7 +9,8 @@
   <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
   <br>
   <br>
-  <button onclick="document.getElementById('john').src='joe.jpg'">what (wh)</button>
+  <button id="top" onclick="document.getElementById('john').src='joe.jpg';document.getElementById('top').style.display='none';document.getElementById('bottom').style.display='block'">what (wh)</button>
+  <button id="bottom" style='display:none' onclick="document.getElementById('john').src='goe.jpg';document.getElementById('bottom').style.display='none';document.getElementById('top').style.display='block'">what (wh)</button>
   <br>
     <img id="john" src="goe.jpg" style="width:234px">
 </html> 
