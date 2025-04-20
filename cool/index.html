@@ -3,11 +3,20 @@
   <head>
     <title>click</title>
       <script>
-        let perclick = 1, amount = 0;
+        let perclick = 1, amount = 0; price = 50;
       function clicked() {
         amount += perclick;
         document.getElementById("amount").innerHTML = amount;
-        document.getElementById("extra").innerHTML = "extra clicks: " + (perclick - 1)
+        document.getElementById("extra").innerHTML = "extra clicks: " + (perclick - 1);
+      }
+
+      function purchase() {
+        if (amount >= price) {
+          amount -= price;
+          perclick = (perclick + 1);
+          document.getElementById("amount").innerHTML = amount;
+          document.getElementById("extra").innerHTML = "extra clicks: " + (perclick - 1);
+        }
       }
       </script>
   </head>
@@ -19,9 +28,8 @@
     <hr />
     <h3>shop</h3>
     
-    <button>extra clicks</button>
+    <button onclick="purchase()">extra clicks (you need 50 hey guys)</button>
     <p id="extra">extra clicks: 0</p>
-    <br>
 
     <hr />
     <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
