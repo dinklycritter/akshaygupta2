@@ -3,9 +3,10 @@
   <head>
     <title>click</title>
       <script>
-        let perclick = 1, amount = 0; price = 50;
+        let perclick = 1, amount = 0; price = 50; pricemulti = 500; multi = 1; fullclick = 1;
       function clicked() {
-        amount += perclick;
+        fullclick = (perclick * multi);
+        amount = (Math.floor(amount + fullclick));
         document.getElementById("amount").innerHTML = amount;
         document.getElementById("extra").innerHTML = "extra clicks: " + (perclick - 1);
       }
@@ -16,6 +17,15 @@
           perclick = (perclick + 1);
           document.getElementById("amount").innerHTML = amount;
           document.getElementById("extra").innerHTML = "extra clicks: " + (perclick - 1);
+        }
+      }
+
+      function purchasemulti() {
+        if (amount >= pricemulti) {
+          amount -= pricemulti;
+          multi = ((Math.floor((multi + 0.1)*10))/10);
+          document.getElementById("amount").innerHTML = amount;
+          document.getElementById("multi").innerHTML = "multi: " + (multi) + "x";
         }
       }
       </script>
@@ -30,6 +40,8 @@
     
     <button onclick="purchase()">extra clicks (you need 50 hey guys)</button>
     <p id="extra">extra clicks: 0</p>
+    <button onclick="purchasemulti()">0.1x multi (you need 500 hey guys)</button>
+    <p id="multi">multi: 1x</p>
 
     <hr />
     <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
