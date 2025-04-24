@@ -33,6 +33,16 @@
           update();
         }
       }
+
+        function purchaseall() {
+          if (amount >= price) {
+            var local = 0;
+            local = ((amount - (amount % price)) / price);
+            perclick = (perclick + local);
+            amount = (amount - (local * price));
+            update();
+          }
+        }
       </script>
   </head>
   <body>
@@ -43,7 +53,7 @@
     <hr />
     <h3>shop</h3>
     
-    <button onclick="purchase()">extra clicks (you need 50 hey guys)</button>
+    <button onclick="purchase()">extra clicks (you need 50 hey guys)</button> <button onclick="purchaseall()">buy all</button>
     <p id="extra">extra clicks: 0</p>
     <button id="mulb" onclick="purchasemulti()">+0.1x multi (you need 250 hey guys)</button>
     <p id="multi">multi: 1x</p>
