@@ -3,7 +3,7 @@
   <head>
     <title>click</title>
       <script>
-        let perclick = 1, amount = 0; price = 50; pricemulti = 250; multi = 1; fullclick = 1; rebirth = 0; rebirthprice = 1000000000;
+        let perclick = 1, amount = 0; price = 50; pricemulti = 250; multi = 1; fullclick = 1; rebirth = 0; rebirthprice = 1000000000; artprice = 3;
 
         function update() {
           document.getElementById("amount").innerHTML = amount;
@@ -55,6 +55,16 @@
             update();
           }
         }
+
+        function buyart() {
+          if (rebirth >= artprice) {
+            rebirth = (rebirth - artprice);
+            artprice = 9999999999999999999;
+            document.getElementById("artpiece").style.display="block";
+            document.getElementById("artbutton").innerHTML = "sold out";
+            update();
+          }
+        }
       </script>
   </head>
   <body>
@@ -74,6 +84,8 @@
     
     <button onclick="dorebirth()">rebirth: 1000000000 hey guys</button>
     <p id="regirth">rebirths: 0</p>
+    <button id="artbutton" onclick="buyart()">buy art (3 rebirths)</button>
+    <img id="artpiece" src="Leandro.jpg" style="width:420px;display:none">
     
     <hr />
     <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
