@@ -3,13 +3,14 @@
   <head>
     <title>click</title>
       <script>
-        let perclick = 1, amount = 0; price = 50; pricemulti = 250; multi = 1; fullclick = 1;
+        let perclick = 1, amount = 0; price = 50; pricemulti = 250; multi = 1; fullclick = 1; rebirth = 0; rebirthprice = 1000000000;
 
         function update() {
           document.getElementById("amount").innerHTML = amount;
           document.getElementById("extra").innerHTML = "extra clicks: " + (perclick - 1);
           document.getElementById("multi").innerHTML = "multi: " + (multi) + "x";
           document.getElementById("mulb").innerHTML = "+0.1x multi (you need " + (pricemulti) + " hey guys)";
+          document.getElementById("regirth").innerHTML = "rebirths: " + (rebirth);
         }
       function clicked() {
         fullclick = (perclick * multi);
@@ -43,6 +44,17 @@
             update();
           }
         }
+
+        function dorebirth() {
+          if (amount >= rebirthprice) {
+            rebirth = (rebirth + 1);
+            amount = 0;
+            perclick = 1;
+            multi = 1;
+            pricemulti = 250;
+            update();
+          }
+        }
       </script>
   </head>
   <body>
@@ -58,6 +70,11 @@
     <button id="mulb" onclick="purchasemulti()">+0.1x multi (you need 250 hey guys)</button>
     <p id="multi">multi: 1x</p>
 
+    <hr />
+    
+    <button onclick="dorebirth()">rebirth: 1000000000 hey guys</button>
+    <p id="regirth">rebirths: 0</p>
+    
     <hr />
     <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/what/" title="what">what</a>
