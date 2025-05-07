@@ -3,7 +3,7 @@
   <head>
     <title>click</title>
       <script>
-        let perclick = 1, amount = 0; price = 50; pricemulti = 250; multi = 1; fullclick = 1; rebirth = 0; rebirthprice = 1000000000; artprice = 3;
+        let perclick = 1, amount = 0; price = 50; pricemulti = 250; multi = 1; fullclick = 1; rebirth = 0; rebirthprice = 1000000000; artprice = 3; cazinoprice = 1; gambling = 0; gamblemulti = 2;
 
         function update() {
           document.getElementById("amount").innerHTML = amount;
@@ -11,6 +11,7 @@
           document.getElementById("multi").innerHTML = "multi: " + (multi) + "x";
           document.getElementById("mulb").innerHTML = "+0.1x multi (you need " + (pricemulti) + " hey guys)";
           document.getElementById("regirth").innerHTML = "rebirths: " + (rebirth);
+          document.getElementById("cazinomultidisplay").innerHTML = "multi: " + (gamblemulti) + "x"
         }
       function clicked() {
         fullclick = (perclick * multi);
@@ -62,7 +63,47 @@
             artprice = 9999999999999999999;
             document.getElementById("artpiece").style.display="block";
             document.getElementById("artbutton").innerHTML = "sold out";
+            document.getElementById("artbutton").style.display="none";
             update();
+          }
+        }
+        function opencasino() {
+          if (rebirth >= cazinoprice) {
+            rebirth = (rebirth - cazinoprice);
+            document.getElementById("cazinoh3").style.display="block";
+            document.getElementById("cazinobuyer").style.display="none";
+            document.getElementById("cazinohr").style.display="block";
+            document.getElementById("casinoreal").style.display="block";
+            document.getElementById("cazinomultidisplay").style.display="block";
+            document.getElementById("casinomultibuyer").style.display="block";
+          }
+        }
+        function gamble() {
+          var real = (Math.random() * 5);
+          var actual = (Math.floor(real));
+          if (actual == 0) {
+            amount = (amount * gamblemulti);
+          }
+          if (actual == 1) {
+            amount = (amount * gamblemulti);
+          }
+          if (actual == 2) {
+            amount = (amount * gamblemulti);
+          }
+          if (actual == 3) {
+            amount = 0;
+          }
+          if (actual == 4) {
+            amount = 0;
+          }
+          update();
+        }
+
+        function casinomultipurchase() {
+          if (rebirth >= 1) {
+            rebirth = (rebirth - 1)
+            gamblemulti = (gamblemulti + 1)
+            update()
           }
         }
       </script>
@@ -81,10 +122,15 @@
     <p id="multi">multi: 1x</p>
 
     <hr />
+    <h3 id="cazinoh3" style="display:none">casino</h3>
+    <button onclick="gamble()" id="casinoreal" style="display:none">gamble (all money, 60% chance to multi)</button>
+    <button id="casinomultibuyer" style="display:none" onclick="casinomultipurchase()">+1 multi (1 rebirth)</button>
+    <p id="cazinomultidisplay" style="display:none">multi: 2x</p>
+    <hr id="cazinohr" style="display:none"/>
     
     <button onclick="dorebirth()">rebirth: 1000000000 hey guys</button>
     <p id="regirth">rebirths: 0</p>
-    <button id="cazinobuyer" style="display:none">open casino (1 rebirth)</button>
+    <button id="cazinobuyer" style="display:block" onclick="opencasino()">open casino (1 rebirth)</button>
     <button id="artbutton" onclick="buyart()">buy art (3 rebirths)</button>
     <img id="artpiece" src="Leandro.jpg" style="width:420px;display:none">
     
