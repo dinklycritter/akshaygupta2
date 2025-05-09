@@ -3,13 +3,35 @@
   <head>
     <title>bill's adventure</title>
       <script>
-        let ohio = 1;
+        let turn = 0, minimum = 0, maximum = 1, pp = 0;
+
+        function update() {
+          document.getElementById("turncounter").innerHTML = "turns: " + (turn);
+          document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + (pp);
+        }
+
+        function campaign() {
+          var real = (Math.random() * (maximum + 1));
+          var actual = (Math.floor(real));
+          var realmente = (actual + minimum);
+          pp = (pp + realmente);
+          turn = (turn + 1);
+            
+          update();
+        }
       </script>
   </head>
   <body>
     <h1>bill for pope</h1>
     <img src="billforpope.png" style="width:124px">
 
+    <p id="turncounter">turns: 0</p>
+    <p id="ppcounter">popularity points (pp): 0</p>
+    <br>
+    <p id="status">bill status: to be added in the future</p>
+    <br>
+    <button id="campaignbutton" onclick="campaign()">campaign for bill</button>
+    
     <hr />
     <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/what/" title="what">what</a>
