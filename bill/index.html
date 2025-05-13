@@ -4,6 +4,7 @@
     <title>bill's adventure</title>
       <script>
         let turn = 0, minimum = 0, maximum = 1, pp = 0;
+        const { good, bad, mid, zero, negative } = require("text.js");
 
         function update() {
           document.getElementById("turncounter").innerHTML = "turns: " + (turn);
