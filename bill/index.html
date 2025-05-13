@@ -3,21 +3,47 @@
   <head>
     <title>bill's adventure</title>
       <script>
-        let turn = 0, minimum = 0, maximum = 1, pp = 0;
-        const { good, bad, mid, zero, negative } = require("text.js");
+        let turn = 0, minimum = 0, maximum = 1, pp = 0, added = 0;
+
+        const good = ["bill posted a fire meme to mr clean.", "bill used logical fallacies to gain more followers.", "bill has immense aura."];
+        const bad = ["bill fumbled hard and got little followers.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean."];
+        const mid = ["bill has been declared mid by the masses.", "bill is neither good nor bad.", "bill is mid."];
+        const zero = ["NOBODY CARES ABOUT BILL!!", "bill did not gain any supporters.", "people don't like bill."];
+        const negative = ["i pooped my pants.", "what did bill do bro he lost followers.", "THE PEOPLE HATE BILL!!!!"];
 
         function update() {
-          document.getElementById("turncounter").innerHTML = "turns: " + (turn);
-          document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + (pp);
+          document.getElementById("turncounter").innerHTML = "turns: " + turn;
+          document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
+  
+          var halfall = (maximum/2 + minimum);
+
+          if (added === 0) {
+            var randomadd = Math.floor(Math.random() * 3);
+            document.getElementById("status").innerHTML = zero[randomadd];
+          } else if (added < 0) {
+            var randomadd = Math.floor(Math.random() * 3);
+            document.getElementById("status").innerHTML = negative[randomadd];
+          } else if (added === halfall) {
+            var randomadd = Math.floor(Math.random() * 3);
+            document.getElementById("status").innerHTML = mid[randomadd];
+          } else if (added > halfall) {
+            var randomadd = Math.floor(Math.random() * 3);
+            document.getElementById("status").innerHTML = good[randomadd];
+          } else if (added < halfall) {
+            var randomadd = Math.floor(Math.random() * 3);
+            document.getElementById("status").innerHTML = bad[randomadd];
+          }
+          
         }
 
         function campaign() {
           var real = (Math.random() * (maximum + 1));
           var actual = (Math.floor(real));
           var realmente = (actual + minimum);
+          added = realmente
           pp = (pp + realmente);
           turn = (turn + 1);
-            
+          
           update();
         }
       </script>
