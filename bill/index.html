@@ -3,19 +3,17 @@
   <head>
     <title>bill's adventure</title>
       <script>
-        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0;
+        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0, doortodoorprice = 20;
 
         const good = ["bill posted a fire meme to mr clean.", "bill used logical fallacies to gain more followers and nobody noticed.", "bill has immense aura.", "bill has become extremely popular", "the cardinals begin to notice bill as a potential candidate for pope.", "gerald ford rose from the grave to go support bill in his pursue for pope.", "bill got free sourcream."];
         const bad = ["bill fumbled hard and got little followers.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean.", "someone told bill to stop spamming reply all to the email thread, but others thought it was pretty funny.", "bill added a certain someone to the email thread.", "bill forgot the accent.",];
         const mid = ["bill has been declared mid by the masses.", "bill is neither good nor bad.", "bill is mid.", "bill sold oatmeal raisin cookies.", "bill got eyes in the back of his head.", "bill got 3 stacks of armadillo scute."];
         const zero = ["NOBODY CARES ABOUT BILL!!", "bill did not gain any supporters.", "bill attempted to promote his pope stuff, but people didn't care.", "bill retains his previous following."];
         const negative = ["i pooped my pants.", "what did bill do bro he lost followers.", "THE PEOPLE HATE BILL!!!!", "bill fell asleep and when he woke up, everyone was gone.", "bill got tariffed :(.", "bill contracted bubonic plague."];
+        const doortodoormessage = ["messangers have been sent to go spread the word of bill, though some people find them annoying.", "bill is a latter day saint.", "bill has released the jehovah's witnesses."];
 
-        function update() {
-          document.getElementById("turncounter").innerHTML = "turns: " + turn;
-          document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
-  
-          var halfall = (maximum/2 + minimum);
+        function campaignmessage() {
+           var halfall = (maximum/2 + minimum);
 
           if (added === 0) {
             var randomadd = Math.floor(Math.random() * (zero.length));
@@ -33,7 +31,11 @@
             var randomadd = Math.floor(Math.random() * (bad.length));
             document.getElementById("status").innerHTML = bad[randomadd];
           }
-          
+        }
+        
+        function update() {
+          document.getElementById("turncounter").innerHTML = "turns: " + turn;
+          document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
         }
 
         function campaign() {
@@ -43,8 +45,22 @@
           added = realmente
           pp = (pp + realmente);
           turn = (turn + 1);
-          
+
+          campaignmessage();
           update();
+        }
+
+        function doortodoor() {
+          if (pp >= doortodoorprice) {
+            pp = (pp - doortodoorprice);
+            minimum = (minimum - 1);
+            maximum = (maximum + 2);
+
+            var randomadd = Math.floor(Math.random() * (doortodoormessage.length));
+            document.getElementById("status").innerHTML = doortodoormessage[randomadd];
+            
+            update();
+          }
         }
       </script>
   </head>
@@ -55,12 +71,12 @@
     <p id="turncounter">turns: 0</p>
     <p id="ppcounter">popularity points (pp): 0</p>
     <br>
-    <p id="status">bill status: to be added in the future</p>
+    <p id="status">get bill to pope in 100 turns</p>
     <br>
     <button id="campaignbutton" onclick="campaign()">campaign for bill</button>
     <hr />
     <h3>pp shop</h3>
-    <p>coming soon</p>
+    <button id="door" onclick="doortodoor()">campaign door to door (20 pp)</button>
     <hr />
     <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/what/" title="what">what</a>
