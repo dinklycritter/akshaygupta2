@@ -3,13 +3,13 @@
   <head>
     <title>bill's adventure</title>
       <script>
-        let turn = 0, minimum = 0, maximum = 4, pp = 0, added = 0;
+        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0;
 
-        const good = ["bill posted a fire meme to mr clean.", "bill used logical fallacies to gain more followers.", "bill has immense aura.", "bill has become extremely popular"];
-        const bad = ["bill fumbled hard and got little followers.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean."];
-        const mid = ["bill has been declared mid by the masses.", "bill is neither good nor bad.", "bill is mid."];
-        const zero = ["NOBODY CARES ABOUT BILL!!", "bill did not gain any supporters.", "people don't like bill."];
-        const negative = ["i pooped my pants.", "what did bill do bro he lost followers.", "THE PEOPLE HATE BILL!!!!"];
+        const good = ["bill posted a fire meme to mr clean.", "bill used logical fallacies to gain more followers and nobody noticed.", "bill has immense aura.", "bill has become extremely popular", "the cardinals begin to notice bill as a potential candidate for pope.", "gerald ford rose from the grave to go support bill in his pursue for pope.", "bill got free sourcream."];
+        const bad = ["bill fumbled hard and got little followers.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean.", "someone told bill to stop spamming reply all to the email thread, but others thought it was pretty funny.", "bill added a certain someone to the email thread.", "bill forgot the accent.",];
+        const mid = ["bill has been declared mid by the masses.", "bill is neither good nor bad.", "bill is mid.", "bill sold oatmeal raisin cookies.", "bill got eyes in the back of his head.", "bill got 3 stacks of armadillo scute."];
+        const zero = ["NOBODY CARES ABOUT BILL!!", "bill did not gain any supporters.", "bill attempted to promote his pope stuff, but people didn't care.", "bill retains his previous following."];
+        const negative = ["i pooped my pants.", "what did bill do bro he lost followers.", "THE PEOPLE HATE BILL!!!!", "bill fell asleep and when he woke up, everyone was gone.", "bill got tariffed :(.", "bill contracted bubonic plague."];
 
         function update() {
           document.getElementById("turncounter").innerHTML = "turns: " + turn;
@@ -18,19 +18,19 @@
           var halfall = (maximum/2 + minimum);
 
           if (added === 0) {
-            var randomadd = Math.floor(Math.random() * 3);
+            var randomadd = Math.floor(Math.random() * (zero.length));
             document.getElementById("status").innerHTML = zero[randomadd];
           } else if (added < 0) {
-            var randomadd = Math.floor(Math.random() * 3);
+            var randomadd = Math.floor(Math.random() * (negative.length));
             document.getElementById("status").innerHTML = negative[randomadd];
           } else if (added === halfall) {
-            var randomadd = Math.floor(Math.random() * 3);
+            var randomadd = Math.floor(Math.random() * (mid.length));
             document.getElementById("status").innerHTML = mid[randomadd];
           } else if (added > halfall) {
-            var randomadd = Math.floor(Math.random() * 4);
+            var randomadd = Math.floor(Math.random() * (good.length));
             document.getElementById("status").innerHTML = good[randomadd];
           } else if (added < halfall) {
-            var randomadd = Math.floor(Math.random() * 3);
+            var randomadd = Math.floor(Math.random() * (bad.length));
             document.getElementById("status").innerHTML = bad[randomadd];
           }
           
