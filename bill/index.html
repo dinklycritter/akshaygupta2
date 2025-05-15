@@ -3,7 +3,7 @@
   <head>
     <title>bill's adventure</title>
       <script>
-        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0, doortodoorprice = 20;
+        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0, doortodoorprice = 10;
 
         const good = ["bill posted a fire meme to mr clean.", "bill used logical fallacies to gain more followers and nobody noticed.", "bill has immense aura.", "bill has become extremely popular", "the cardinals begin to notice bill as a potential candidate for pope.", "gerald ford rose from the grave to go support bill in his pursue for pope.", "bill got free sourcream."];
         const bad = ["bill fumbled hard and got little followers.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean.", "someone told bill to stop spamming reply all to the email thread, but others thought it was pretty funny.", "bill added a certain someone to the email thread.", "bill forgot the accent.",];
@@ -34,8 +34,8 @@
         }
         
         function update() {
-          document.getElementById("turncounter").innerHTML = "turns: " + turn;
           document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
+           document.getElementById("turncounter").innerHTML = "turns: " + turn;
         }
 
         function campaign() {
@@ -76,7 +76,7 @@
     <button id="campaignbutton" onclick="campaign()">campaign for bill</button>
     <hr />
     <h3>pp shop</h3>
-    <button id="door" onclick="doortodoor()">campaign door to door (20 pp)</button>
+    <button id="door" onclick="doortodoor()">campaign door to door (10 pp)</button>
     <hr />
     <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/what/" title="what">what</a>
