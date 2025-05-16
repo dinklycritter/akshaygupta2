@@ -3,14 +3,16 @@
   <head>
     <title>bill's adventure</title>
       <script>
-        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0, doortodoorprice = 10, mormons = 3;
+        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0, doortodoorprice = 10, mormons = 5, dong = 0, tvprice = 20;
 
         const good = ["bill posted a fire meme to mr clean.", "bill used logical fallacies to gain more followers and nobody noticed.", "bill has immense aura.", "bill has become extremely popular", "the cardinals begin to notice bill as a potential candidate for pope.", "gerald ford rose from the grave to go support bill in his pursue for pope.", "bill got free sourcream."];
         const bad = ["bill fumbled hard and got little followers.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean.", "someone told bill to stop spamming reply all to the email thread, but others thought it was pretty funny.", "bill added a certain someone to the email thread.", "bill forgot the accent.",];
         const mid = ["bill has been declared mid by the masses.", "bill is neither good nor bad.", "bill is mid.", "bill sold oatmeal raisin cookies.", "bill got eyes in the back of his head.", "bill got 3 stacks of armadillo scute."];
         const zero = ["NOBODY CARES ABOUT BILL!!", "bill did not gain any supporters.", "bill attempted to promote his pope stuff, but people didn't care.", "bill retains his previous following."];
         const negative = ["i pooped my pants.", "what did bill do bro he lost followers.", "THE PEOPLE HATE BILL!!!!", "bill fell asleep and when he woke up, everyone was gone.", "bill got tariffed :(.", "bill contracted bubonic plague."];
-        const doortodoormessage = ["messangers have been sent to go spread the word of bill, though some people find them annoying.", "bill is a latter day saint.", "bill has released the jehovah's witnesses.", "the door to door salesmen might ."];
+        const doortodoormessage = ["messangers have been sent to go spread the word of bill, though some people find them annoying.", "bill is a latter day saint.", "bill has released the jehovah's witnesses.", "the door to door salesmen are promoting bill for sure, but too much of them might make people mad."];
+        const dongacquire = ["dong acquired!", "hay dong en la casa.", "bill has been put on a hit list."]
+        const tvmessage = ["there are now fire bill ads airing on tv.", "bill awareness increased.", "bill has eyes in the back of his eyes.", "akshay gupta."]
 
         function campaignmessage() {
            var halfall = (maximum/2 + minimum);
@@ -34,20 +36,50 @@
         }
         
         function update() {
+          turn = (turn + 1);
           document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
            document.getElementById("turncounter").innerHTML = "turns: " + turn;
+          document.getElementById("dongcounter").innerHTML = "vietnamese dong: " + dong;
+          
         }
 
         function campaign() {
           var real = (Math.random() * (maximum + 1));
           var actual = (Math.floor(real));
           var realmente = (actual + minimum);
-          added = realmente
+          added = realmente;
           pp = (pp + realmente);
-          turn = (turn + 1);
+          
 
           campaignmessage();
           update();
+        }
+
+        function sellfordong() {
+          if (pp >= 1) {
+            dong = (dong + (pp * 2));
+            pp = 0;
+            document.getElementById("dongcounter").style.display = "block";
+            document.getElementById("dongh3").style.display = "block";
+            document.getElementById("donghr").style.display = "block";
+            document.getElementById("dongadget").style.display = "block";
+            
+            update();
+            var randomadd = Math.floor(Math.random() * (dongacquire.length));
+            document.getElementById("status").innerHTML = dongacquire[randomadd];
+          }
+        }
+
+        function tvad() {
+          if (dong >= tvprice) {
+            dong = (dong - tvprice);
+            minimum = (minimum + 1);
+
+            var randomadd = Math.floor(Math.random() * (tvmessage.length));
+            document.getElementById("status").innerHTML = tvmessage[randomadd];
+
+            update();
+          }
         }
 
         function doortodoor() {
@@ -71,6 +103,7 @@
 
     <p id="turncounter">turns: 0</p>
     <p id="ppcounter">popularity points (pp): 0</p>
+    <p style="display:none" id="dongcounter">vietnamese dong: 0</p>
     <br>
     <p id="status">get bill to pope in 100 turns</p>
     <br>
@@ -78,7 +111,15 @@
     <hr />
     <h3>pp shop</h3>
     <button id="door" onclick="doortodoor()">campaign door to door (10 pp)</button>
+    <br>
+    <button id="sell" onclick="sellfordong()">sell all your followers (2 dong per 1 pp)</button>
     <hr />
+    
+    <!dong shop>
+    <h3 id="dongh3" style="display:none">dong shop</h3>
+    <button id="dongadget" onclick="tvad()" style="display:none">television advertisement (20 dong)</button>
+    <hr id="donghr" style="display:none"/>
+    
     <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/what/" title="what">what</a>
     <a href="https://info.cern.ch/hypertext/WWW/TheProject.html" title="some more information" target="_blank">more info</a>
