@@ -22,16 +22,16 @@
         //const variables (NOT TABLES!!)
         const tvprice = 20, floodcost = 100, doortodoorprice = 10, cheapstockmin = 8, cheapstockmax = 55, midstockmin = 50, midstockmax = 140, beststockmin = 120, beststockmax = 200;
         //const variables (TABLES!!!!)
-        const good = ["bill posted a fire meme to mr clean.", "bill used logical fallacies to gain more followers and nobody noticed.", "bill has immense aura.", "bill has become extremely popular", "the cardinals begin to notice bill as a potential candidate for pope.", "gerald ford rose from the grave to go support bill in his pursue for pope.", "bill got free sourcream.", "bill has gained a golden play button."];
-        const bad = ["bill fumbled hard and got little followers.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean.", "someone told bill to stop spamming reply all to the email thread, but others thought it was pretty funny.", "bill added a certain someone to the email thread.", "bill forgot the accent.", "bill barely survived the nether."];
-        const mid = ["bill has been declared mid by the masses.", "bill is neither good nor bad.", "bill is mid.", "bill sold oatmeal raisin cookies.", "bill got eyes in the back of his head.", "bill got 3 stacks of armadillo scute."];
-        const zero = ["NOBODY CARES ABOUT BILL!!", "bill did not gain any supporters.", "bill attempted to promote his pope stuff, but people didn't care.", "bill retains his previous following.", "crickets...", "bill's videos never went viral, but it was all a dream."];
-        const negative = ["i pooped my pants.", "what did bill do bro he lost followers.", "THE PEOPLE HATE BILL!!!!", "bill fell asleep and when he woke up, everyone was gone.", "bill got tariffed :(.", "bill contracted bubonic plague.", "bill got dried cranberries.", "bill has been arrested on four counts of tax fraud."];
-        const doortodoormessage = ["messangers have been sent to go spread the word of bill, though some people find them annoying.", "bill is a latter day saint.", "bill has released the jehovah's witnesses.", "the door to door salesmen are promoting bill for sure, but too much of them might make people mad.", "bill is contacting people about their cars' extended warranty."];
-        const dongacquire = ["dong acquired!", "hay dong en la casa.", "bill has been put on a hit list.", "diddy inheritance found!", "+100 social credit."];
-        const tvmessage = ["there are now fire bill ads airing on tv.", "bill awareness increased.", "bill has eyes in the back of his eyes.", "akshay gupta.", "moowah bill !"];
-        const openstockmarketmessage = ["bill has hedge funds.", "bill participated in capitalism."]
-        const stockcompanies = ["oil refinery co.", "dean inc.", "goons associate", "former nation of czechoslovakia", "sandwich-a-rama sandwich store", "pikmin 3 deluxe", "fish", "WSB", "tsmc", "crashout & co", "joe's ice cream", "loblaw companies ltd.", "isnack 2.0", "boeing co", "2 kilo...", "zinc workers united", "freerobux.com", "down yonder ltd.", "canes arcade", "CAASPP testing", "the library of letourneau", "spöök tube", "get faded LLC", "hocotate freight"];
+        const good = ["bill posted a fire meme to mr clean.", "bill got a large amount of mwahs.", "bill used logical fallacies to gain more followers and nobody noticed.", "bill has immense aura.", "bill has become extremely popular", "the cardinals begin to notice bill as a potential candidate for pope.", "gerald ford rose from the grave to go support bill in his pursue for pope.", "bill got free sourcream.", "bill has gained a golden play button."];
+        const bad = ["bill fumbled hard and got little followers.", "bill got very little mwahs.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean.", "someone told bill to stop spamming reply all to the email thread, but others thought it was pretty funny.", "bill added a certain someone to the email thread.", "bill forgot the accent.", "bill barely survived the nether."];
+        const mid = ["bill has been declared mid by the masses.", "bill got a mid amount of mwahs.", "bill is neither good nor bad.", "bill is mid.", "bill sold oatmeal raisin cookies.", "bill got eyes in the back of his head.", "bill got 3 stacks of armadillo scute."];
+        const zero = ["NOBODY CARES ABOUT BILL!!", "bill did not gain any supporters.", "bill got no mwahs.", "bill attempted to promote his pope stuff, but people didn't care.", "bill retains his previous following.", "crickets...", "bill's videos never went viral, but it was all a dream."];
+        const negative = ["i pooped my pants.", "bill is losing mwahs.", "what did bill do bro he lost followers.", "THE PEOPLE HATE BILL!!!!", "bill fell asleep and when he woke up, everyone was gone.", "bill got tariffed :(.", "bill contracted bubonic plague.", "bill got dried cranberries.", "bill has been arrested on four counts of tax fraud."];
+        const doortodoormessage = ["messangers have been sent to go spread the word of bill, though some people find them annoying.", "bill is a latter day saint.", "bill has released the jehovah's witnesses.", "the door to door salesmen are promoting bill for sure, but too much of them might make people mad.", "bill is contacting people about their cars' extended warranty.", "the spanish - I mean bill - inquisiton spread to everybody's front door."];
+        const dongacquire = ["big dong gain.", "dong acquired!", "hay dong en la casa.", "bill has been put on a hit list.", "diddy inheritance found!", "+100 social credit."];
+        const tvmessage = ["there are now fire bill ads airing on tv.", "bill sends his mwahs across the globe.", "bill awareness increased.", "bill has eyes in the back of his eyes.", "akshay gupta.", "moowah bill !", "'vote bill' - [crowd cheers estatically for 50 straight minutes]"];
+        const openstockmarketmessage = ["bill has hedge funds.", "bill participated in capitalism.", "bryce moment."]
+        const stockcompanies = ["oil refinery co.", "devin inc.", "dean inc.", "goons associate", "former nation of czechoslovakia", "sandwich-a-rama sandwich store", "pikmin 3 deluxe", "fish", "WSB", "tsmc", "crashout & co", "joe's ice cream", "loblaw companies ltd.", "isnack 2.0", "boeing co", "2 kilo...", "zinc workers united", "freerobux.com", "down yonder ltd.", "canes arcade", "CAASPP testing", "the library of letourneau", "spöök tube", "get faded LLC", "hocotate freight", "IDK like meme stocks"];
         const stockqualities = ["excellant", "good", "mid", "bad", "horrible"];
 
         function updatestocks() {
@@ -55,10 +55,12 @@
           stockquality1 = (randomquality * 1);
           randomquality = Math.floor(Math.random() * (stockqualities.length));
           stockquality2 = (randomquality * 1);
+          randomquality = Math.floor(Math.random() * (stockqualities.length));
+          stockquality3 = (randomquality * 1);
           //write to the table
-          document.getElementById("stock1").innerHTML = `${stockname1}<br/>${stockprice1}`;
-          document.getElementById("stock2").innerHTML = `${stockname2}<br/>${stockprice2}`;
-          document.getElementById("stock3").innerHTML = `${stockname3}<br/>${stockprice3}`;
+          document.getElementById("stock1").innerHTML = `${stockname1}<br/>quality: ${stockqualities[stockquality1]}<br><br><button>buy (${stockprice1} dong)</button>`;
+          document.getElementById("stock2").innerHTML = `${stockname2}<br/>quality: ${stockqualities[stockquality2]}<br><br><button>buy (${stockprice2} dong)</button>`;
+          document.getElementById("stock3").innerHTML = `${stockname3}<br/>quality: ${stockqualities[stockquality3]}<br><br><button>buy (${stockprice3} dong)</button>`;
 
           //later for stocks!!!
           //sell prices will be according to the price of the stock
