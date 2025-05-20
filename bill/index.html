@@ -162,6 +162,11 @@
             document.getElementById("stockhr").style.display = "block";
             document.getElementById("stockstable").style.display = "table";
 
+            //idk why i have to do this
+            document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
+           document.getElementById("turncounter").innerHTML = "turns: " + turn;
+          document.getElementById("dongcounter").innerHTML = "vietnamese dong: " + dong;
+
             var randomadd = Math.floor(Math.random() * (openstockmarketmessage.length));
             document.getElementById("cstatus").innerHTML = openstockmarketmessage[randomadd];
             update()
@@ -214,6 +219,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.4.2</small>
+    <small style="display:block">bill's adventure 0.4.2.3</small>
   </body>
 </html>
