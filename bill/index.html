@@ -20,7 +20,7 @@
         //stock market
         let stockname1 = "", stockname2 = "", stockname3 = "", stockprice1 = "", stockprice2 = "", stockprice3 = "", stockquality1 = "", stockquality2 = "", stockquality3 = "";
         //const variables (NOT TABLES!!)
-        const tvprice = 20, floodcost = 100, doortodoorprice = 10, cheapstockmin = 8, cheapstockmax = 55, midstockmin = 50, midstockmax = 140, beststockmin = 120, beststockmax = 200;
+        const tvprice = 20, floodcost = 100, doortodoorprice = 10, stockmin = 15, stockmax = 245;
         //const variables (TABLES!!!!)
         const good = ["bill posted a fire meme to mr clean.", "bill got a large amount of mwahs.", "bill used logical fallacies to gain more followers and nobody noticed.", "bill has immense aura.", "bill has become extremely popular", "the cardinals begin to notice bill as a potential candidate for pope.", "gerald ford rose from the grave to go support bill in his pursue for pope.", "bill got free sourcream.", "bill has gained a golden play button."];
         const bad = ["bill fumbled hard and got little followers.", "bill got very little mwahs.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean.", "someone told bill to stop spamming reply all to the email thread, but others thought it was pretty funny.", "bill added a certain someone to the email thread.", "bill forgot the accent.", "bill barely survived the nether."];
@@ -32,7 +32,7 @@
         const tvmessage = ["there are now fire bill ads airing on tv.", "bill sends his mwahs across the globe.", "bill awareness increased.", "bill has eyes in the back of his eyes.", "akshay gupta.", "moowah bill !", "'vote bill' - [crowd cheers estatically for 50 straight minutes]"];
         const openstockmarketmessage = ["bill has hedge funds.", "bill participated in capitalism.", "bryce moment."]
         const stockcompanies = ["oil refinery co.", "devin inc.", "dean inc.", "goons associate", "former nation of czechoslovakia", "sandwich-a-rama sandwich store", "pikmin 3 deluxe", "fish", "WSB", "tsmc", "crashout & co", "joe's ice cream", "loblaw companies ltd.", "isnack 2.0", "boeing co", "2 kilo...", "zinc workers united", "freerobux.com", "down yonder ltd.", "canes arcade", "CAASPP testing", "the library of letourneau", "spöök tube", "get faded LLC", "hocotate freight", "IDK like meme stocks"];
-        const stockqualities = ["excellant", "good", "mid", "bad", "horrible"];
+        const stockqualities = ["excellent", "good", "mid", "bad", "horrible"];
 
         function updatestocks() {
           //update names
@@ -44,12 +44,12 @@
           randomadd = Math.floor(Math.random() * (companylist.length));
           stockname3 = companylist.splice(randomadd, 1)[0];
           //update prices
-          var randomprice = Math.floor(Math.random() * (cheapstockmax - cheapstockmin));
-          stockprice1 = ((randomprice * 10) + cheapstockmin * 10);
-          randomprice = Math.floor(Math.random() * (midstockmax - midstockmin));
-          stockprice2 = ((randomprice * 10) + midstockmin * 10);
-          randomprice = Math.floor(Math.random() * (beststockmax - beststockmin));
-          stockprice3 = ((randomprice * 10) + beststockmin * 10);
+          var randomprice = Math.floor(Math.random() * (stockmax - stockmin));
+          stockprice1 = ((randomprice * 10) + stockmin * 10);
+          randomprice = Math.floor(Math.random() * (stockmax - stockmin));
+          stockprice2 = ((randomprice * 10) + stockmin * 10);
+          randomprice = Math.floor(Math.random() * (stockmax - stockmin));
+          stockprice3 = ((randomprice * 10) + stockmin * 10);
           //update qualities
           var randomquality = Math.floor(Math.random() * (stockqualities.length));
           stockquality1 = (randomquality * 1);
@@ -219,6 +219,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.4.2.3</small>
+    <small style="display:block">bill's adventure 0.4.3</small>
   </body>
 </html>
