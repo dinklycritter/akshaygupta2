@@ -181,7 +181,7 @@
               currentstockname = stockname1;
               document.getElementById("stockstable").style.display = "none";
               document.getElementById("currentstocktable").style.display = "table";
-              document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button>sell (${currentstockprice} dong)</button>`;
+              document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
               update()
             }
           }
@@ -194,7 +194,7 @@
               currentstockname = stockname2;
               document.getElementById("stockstable").style.display = "none";
               document.getElementById("currentstocktable").style.display = "table";
-              document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button>sell (${currentstockprice} dong)</button>`;
+              document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
               update()
             }
           }
@@ -207,10 +207,20 @@
               currentstockname = stockname3;
               document.getElementById("stockstable").style.display = "none";
               document.getElementById("currentstocktable").style.display = "table";
-              document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button>sell (${currentstockprice} dong)</button>`;
+              document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
               update()
             }
           }
+
+        function sellstock() {
+          document.getElementById("stockstable").style.display = "table";
+          document.getElementById("currentstocktable").style.display = "none";
+          dong = (dong + currentstockprice);
+          currentstockprice = 0;
+          currentstockquality = "";
+          currentstockname = "";
+          update()
+        }
       </script>
   </head>
   <body>
@@ -264,6 +274,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.4.4</small>
+    <small style="display:block">bill's adventure 0.4.5</small>
   </body>
 </html>
