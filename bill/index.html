@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
-<!reminders for me: tables use style.display="table">
-<!what to do if code is not working: check update function, check onclick, check ;, check spelling of variables and stupid commands>
+<!-- reminders for me: tables use style.display="table" -->
+<!-- what to do if code is not working: check update function, check onclick, check ;, check spelling of variables and stupid commands -->
+
 <html>
   <head>
     <style>
@@ -16,7 +17,7 @@
         //my variables :)
         let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0, mormons = 5, dong = 0;
         //checkers
-        let dongshopopen = 0;
+        let dongshopopen = 0, stupid = 0;
         //stock market
         let stockname1 = "", stockname2 = "", stockname3 = "", stockprice1 = "", stockprice2 = "", stockprice3 = "", stockquality1 = "", stockquality2 = "", stockquality3 = "", currentstockprice = "", currentstockquality = "", currentstockname = "";
         //const variables (NOT TABLES!!)
@@ -28,11 +29,12 @@
         const zero = ["NOBODY CARES ABOUT BILL!!", "bill did not gain any supporters.", "bill got no mwahs.", "bill attempted to promote his pope stuff, but people didn't care.", "bill retains his previous following.", "crickets...", "bill's videos never went viral, but it was all a dream."];
         const negative = ["i pooped my pants.", "bill is losing mwahs.", "what did bill do bro he lost followers.", "THE PEOPLE HATE BILL!!!!", "bill fell asleep and when he woke up, everyone was gone.", "bill got tariffed :(.", "bill contracted bubonic plague.", "bill got dried cranberries.", "bill has been arrested on four counts of tax fraud."];
         const doortodoormessage = ["messangers have been sent to go spread the word of bill, though some people find them annoying.", "bill is a latter day saint.", "bill has released the jehovah's witnesses.", "the door to door salesmen are promoting bill for sure, but too much of them might make people mad.", "bill is contacting people about their cars' extended warranty.", "the spanish - I mean bill - inquisiton spread to everybody's front door."];
-        const dongacquire = ["big dong gain.", "dong acquired!", "hay dong en la casa.", "bill has been put on a hit list.", "diddy inheritance found!", "+100 social credit."];
-        const tvmessage = ["there are now fire bill ads airing on tv.", "bill sends his mwahs across the globe.", "bill awareness increased.", "bill has eyes in the back of his eyes.", "akshay gupta.", "moowah bill !", "'vote bill' - [crowd cheers estatically for 50 straight minutes]"];
+        const dongacquire = ["big dong gain.", "dong acquired!", "hay dong en la casa.", "bill has been put on a hit list.", "diddy inheritance located!", "+100 social credit."];
+        const tvmessage = ["there are now fire bill ads airing on tv.", "bill sends his mwahs across the globe.", "bill awareness increased.", "bill has eyes in the back of his eyes.", "akshay gupta.", "moowah bill !", "'vote bill' - [crowd cheers estatically for 50 straight minutes]", "bill says: 'just say yes' (real quote from bill)", "whether they like it or not, pristine bill knowledge is being beamed into the brainstems of vulnerable children and unemployed hbs."];
         const openstockmarketmessage = ["bill has hedge funds.", "bill participated in capitalism.", "bryce moment."]
         const stockcompanies = ["oil refinery co.", "devin inc.", "dean inc.", "goons associate", "former nation of czechoslovakia", "sandwich-a-rama sandwich store", "pikmin 3 deluxe", "fish", "WSB", "tsmc", "crashout & co", "joe's ice cream", "loblaw companies ltd.", "isnack 2.0", "boeing co", "2 kilo...", "zinc workers united", "freerobux.com", "down yonder ltd.", "canes arcade", "CAASPP testing", "the library of letourneau", "spöök tube", "get faded LLC", "hocotate freight", "IDK like meme stocks"];
-        const stockqualities = ["excellent", "good", "mid", "bad", "horrible"];
+        const stockqualities = ["horrible", "bad", "mid", "good", "excellent"];
+        const stocklost = ["BREAKING NEWS!!!! YOUR STOCK IS COOKED!", "the current pope wasted 4 trillion on giving his supporters 6 cents off on their taxes, resulting in a bill's stock CRASHING!!!!", "the company of which you own stocks to has just disintegrated.", "-$50,000 in 15 seconds.", "-2 on the stocks!!!!!!", "bill got tired of winning."]
 
         function updatestocks() {
           //update names
@@ -44,11 +46,11 @@
           randomadd = Math.floor(Math.random() * (companylist.length));
           stockname3 = companylist.splice(randomadd, 1)[0];
           //update prices
-          var randomprice = Math.floor(Math.random() * (stockmax - stockmin));
+          var randomprice = Math.floor(Math.random() * (stockmax - stockmin + 1));
           stockprice1 = ((randomprice * 10) + stockmin * 10);
-          randomprice = Math.floor(Math.random() * (stockmax - stockmin));
+          randomprice = Math.floor(Math.random() * (stockmax - stockmin + 1));
           stockprice2 = ((randomprice * 10) + stockmin * 10);
-          randomprice = Math.floor(Math.random() * (stockmax - stockmin));
+          randomprice = Math.floor(Math.random() * (stockmax - stockmin + 1));
           stockprice3 = ((randomprice * 10) + stockmin * 10);
           //update qualities
           var randomquality = Math.floor(Math.random() * (stockqualities.length));
@@ -57,14 +59,55 @@
           stockquality2 = (randomquality * 1);
           randomquality = Math.floor(Math.random() * (stockqualities.length));
           stockquality3 = (randomquality * 1);
+          //update stocks
+          if (stupid === 1) {
+            var randomrandomness = Math.floor(Math.random() * 15);
+              if (randomrandomness <= 3) {
+                if (currentstockquality <= 3) {
+                  currentstockquality = (currentstockquality + 1);
+                  currentstockprice = (currentstockprice * 2);
+                }
+              } else if (randomrandomness <= 7) {
+                if (currentstockquality >= 1) {
+                  currentstockquality = (currentstockquality - 1);
+                  currentstockprice = (Math.floor(currentstockprice/2));
+                }
+              } else if (randomrandomness === 8 || randomrandomness === 9) {
+                if (currentstockquality <= 2) {
+                  currentstockquality = (currentstockquality + 2);
+                  currentstockprice = (currentstockprice * 4);
+                } else if (currentstockquality === 3) {
+                  currentstockquality = (currentstockquality + 1);
+                  currentstockprice = (currentstockprice * 2);
+                }
+              } else if (randomrandomness === 10 || randomrandomness === 11) {
+                if (currentstockquality >= 2) {
+                currentstockquality = (currentstockquality - 2);
+                currentstockprice = (Math.floor(currentstockprice/4));
+                } else {
+                  stupid = 0;
+                  document.getElementById("stockstable").style.display = "table";
+                  document.getElementById("currentstocktable").style.display = "none";
+                  let crashout = Math.floor(Math.random() * stocklost.length);
+                  document.getElementById("stockstatus").innerHTML = "stock-o-meter: " + stocklost[crashout];
+                  currentstockprice = "";
+                  currentstockquality = "";
+                  currentstockname = "";
+                  update();
+                }
+              }
+
+            document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
+            //put dividends here
+          }
           //write to the table
           document.getElementById("stock1").innerHTML = `${stockname1}<br/>quality: ${stockqualities[stockquality1]}<br><br><button onclick="buystock1()">buy (${stockprice1} dong)</button>`;
           document.getElementById("stock2").innerHTML = `${stockname2}<br/>quality: ${stockqualities[stockquality2]}<br><br><button onclick="buystock2()">buy (${stockprice2} dong)</button>`;
           document.getElementById("stock3").innerHTML = `${stockname3}<br/>quality: ${stockqualities[stockquality3]}<br><br><button onclick="buystock3()">buy (${stockprice3} dong)</button>`;
 
-          //later for stocks!!!
-          //sell prices will be according to the price of the stock
-          //dividend prices will be a fixed amount for cheap, mid and best stocks
+          //to add for stocks:
+          //1. stock-o-meter status
+          //2. dividends
         }
 
         function campaignmessage() {
@@ -161,6 +204,7 @@
             document.getElementById("stockh3").style.display = "block";
             document.getElementById("stockhr").style.display = "block";
             document.getElementById("stockstable").style.display = "table";
+            document.getElementById("stockstatus").style.display = "block";
 
             //idk why i have to do this
             document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
@@ -182,6 +226,7 @@
               document.getElementById("stockstable").style.display = "none";
               document.getElementById("currentstocktable").style.display = "table";
               document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
+              stupid = 1;
               update()
             }
           }
@@ -195,6 +240,7 @@
               document.getElementById("stockstable").style.display = "none";
               document.getElementById("currentstocktable").style.display = "table";
               document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
+              stupid = 1;
               update()
             }
           }
@@ -208,6 +254,7 @@
               document.getElementById("stockstable").style.display = "none";
               document.getElementById("currentstocktable").style.display = "table";
               document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
+              stupid = 1;
               update()
             }
           }
@@ -219,6 +266,7 @@
           currentstockprice = 0;
           currentstockquality = "";
           currentstockname = "";
+          stupid = 0;
           update()
         }
       </script>
@@ -265,6 +313,8 @@
         <td id="boughtstock">current stock here</td>
       </tr>
     </table>
+    <br>
+    <p id="stockstatus" style="display:none">stock-o-meter: stocks</p>
     
     <hr id="stockhr" style="display:none"/>
     
@@ -274,6 +324,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.4.5</small>
+    <small style="display:block">bill's adventure 0.4.6</small>
   </body>
 </html>
