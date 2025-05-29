@@ -15,13 +15,14 @@
       <script>
 
         //my variables :)
-        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0, mormons = 5, dong = 0;
+        let turn = 0, minimum = 0, maximum = 2, pp = 0, added = 0, mormons = 5, dong = 0, studentgive = 10, priceincreaseforstudents = 5;
         //checkers
         let dongshopopen = 0, stupid = 0;
         //stock market
         let stockname1 = "", stockname2 = "", stockname3 = "", stockprice1 = "", stockprice2 = "", stockprice3 = "", stockquality1 = "", stockquality2 = "", stockquality3 = "", currentstockprice = "", currentstockquality = "", currentstockname = "";
         //const variables (NOT TABLES!!)
         const tvprice = 20, floodcost = 100, doortodoorprice = 10, stockmin = 15, stockmax = 245;
+        let studentprice = 200;
         //const variables (TABLES!!!!)
         const good = ["bill posted a fire meme to mr clean.", "bill got a large amount of mwahs.", "bill used logical fallacies to gain more followers and nobody noticed.", "bill has immense aura.", "bill has become extremely popular", "the cardinals begin to notice bill as a potential candidate for pope.", "gerald ford rose from the grave to go support bill in his pursue for pope.", "bill got free sourcream.", "bill has gained a golden play button."];
         const bad = ["bill fumbled hard and got little followers.", "bill got very little mwahs.", "bill used logical fallacies, but someone pointed it out.", "bill posted unfunny memes to mr clean.", "someone told bill to stop spamming reply all to the email thread, but others thought it was pretty funny.", "bill added a certain someone to the email thread.", "bill forgot the accent.", "bill barely survived the nether."];
@@ -34,7 +35,9 @@
         const openstockmarketmessage = ["bill has hedge funds.", "bill participated in capitalism.", "bryce moment."]
         const stockcompanies = ["oil refinery co.", "devin inc.", "dean inc.", "goons associate", "former nation of czechoslovakia", "sandwich-a-rama sandwich store", "pikmin 3 deluxe", "fish", "WSB", "tsmc", "crashout & co", "joe's ice cream", "loblaw companies ltd.", "isnack 2.0", "boeing co", "2 kilo...", "zinc workers united", "freerobux.com", "down yonder ltd.", "canes arcade", "CAASPP testing", "the library of letourneau", "spöök tube", "get faded LLC", "hocotate freight", "IDK like meme stocks"];
         const stockqualities = ["horrible", "bad", "mid", "good", "excellent"];
-        const stocklost = ["BREAKING NEWS!!!! YOUR STOCK IS COOKED!", "the current pope wasted 4 trillion on giving his supporters 6 cents off on their taxes, resulting in a bill's stock CRASHING!!!!", "the company of which you own stocks to has just disintegrated.", "-$50,000 in 15 seconds.", "-2 on the stocks!!!!!!", "bill got tired of winning."]
+        const stocklost = ["BREAKING NEWS!!!! YOUR STOCK IS COOKED!", "the current pope wasted 4 trillion on giving his supporters 6 cents off on their taxes, resulting in a bill's stock CRASHING!!!!", "the company of which you own stocks to has just disintegrated.", "-$50,000 in 15 seconds.", "-2 on the stocks!!!!!!", "bill got tired of winning."];
+        const dividend = ["dividends acquired!", "your stock is doing so good, the company is paying shareholders with dividends!", "bill got free money!", "bill got hedge funds", "bill dargen song"];
+        const theinventors = ["the f students are the inventors!", "bill is an inventor.", "bill is an f student.", "bills got a bright future.", "bill tried it at home."]
 
         function updatestocks() {
           //update names
@@ -98,7 +101,11 @@
               }
 
             document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
-            //put dividends here
+            if (currentstockquality === 4) {
+              let dividendnombre = Math.floor(Math.random() * dividend.length);
+              dong = (dong + (currentstockprice/5));
+              document.getElementById("stockstatus").innerHTML = "stock-o-meter: " + dividend[dividendnombre];
+            }
           }
           //write to the table
           document.getElementById("stock1").innerHTML = `${stockname1}<br/>quality: ${stockqualities[stockquality1]}<br><br><button onclick="buystock1()">buy (${stockprice1} dong)</button>`;
@@ -136,7 +143,8 @@
           document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
            document.getElementById("turncounter").innerHTML = "turns: " + turn;
           document.getElementById("dongcounter").innerHTML = "vietnamese dong: " + dong;
-          updatestocks()
+          document.getElementById("fstudents").innerHTML = `destroy a school issued chromebook on camera (${studentprice} dong)`;
+          updatestocks();
         }
 
         function campaign() {
@@ -162,7 +170,9 @@
               document.getElementById("dongadget").style.display = "block";
               document.getElementById("openstocks").style.display = "block";
               document.getElementById("dongdong").style.display = "block";
-              dongshopopen = 500
+              document.getElementById("dongdongdong").style.display = "block";
+              document.getElementById("fstudents").style.display = "block";
+              dongshopopen = 500;
             }
             
             update();
@@ -255,7 +265,7 @@
               document.getElementById("currentstocktable").style.display = "table";
               document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
               stupid = 1;
-              update()
+              update();
             }
           }
 
@@ -267,7 +277,20 @@
           currentstockquality = "";
           currentstockname = "";
           stupid = 0;
-          update()
+          update();
+        }
+
+        function students() {
+          if (dong >= studentprice) {
+            dong = (dong - studentprice);
+            priceincreaseforstudents = (priceincreaseforstudents * 3);
+            studentprice = (studentprice + priceincreaseforstudents);
+            studentgive = (Math.floor(studentgive * 1.5));
+            maximum = (maximum + studentgive);
+            update();
+            var randomadd = Math.floor(Math.random() * (theinventors.length));
+            document.getElementById("status").innerHTML = theinventors[randomadd];
+          }
         }
       </script>
   </head>
@@ -293,6 +316,8 @@
     <!dong shop>
     <h3 id="dongh3" style="display:none">dong shop</h3>
     <button id="dongadget" onclick="tvad()" style="display:none">television advertisement (20 dong)</button>
+    <p id="dongdongdong" style="display:none"> </p>
+    <button id="fstudents" style="display:none" onclick="students()">destroy a school issued chromebook on camera (200 dong)</button> <!--price and maximum both scale-->
     <p id="dongdong" style="display:none"> </p>
     <button id="openstocks" style="display:none" onclick="openfloodgates()">open the stock market (100 dong)</button>
     <hr id="donghr" style="display:none"/>
@@ -324,6 +349,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.4.6</small>
+    <small style="display:block">bill's adventure 0.5.1</small>
   </body>
 </html>
