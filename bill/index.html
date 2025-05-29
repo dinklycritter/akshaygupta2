@@ -38,6 +38,7 @@
         const stocklost = ["BREAKING NEWS!!!! YOUR STOCK IS COOKED!", "the current pope wasted 4 trillion on giving his supporters 6 cents off on their taxes, resulting in a bill's stock CRASHING!!!!", "the company of which you own stocks to has just disintegrated.", "-$50,000 in 15 seconds.", "-2 on the stocks!!!!!!", "bill got tired of winning."];
         const dividend = ["dividends acquired!", "your stock is doing so good, the company is paying shareholders with dividends!", "bill got free money!", "bill got hedge funds", "bill dargen song"];
         const theinventors = ["the f students are the inventors!", "bill is an inventor.", "bill is an f student.", "bills got a bright future.", "bill tried it at home."]
+        const teachers = ["the teachers found out...", "bill's house burned down.", "are we realmente?"];
 
         function updatestocks() {
           //update names
@@ -282,14 +283,22 @@
 
         function students() {
           if (dong >= studentprice) {
-            dong = (dong - studentprice);
-            priceincreaseforstudents = (priceincreaseforstudents * 3);
-            studentprice = (studentprice + priceincreaseforstudents);
-            studentgive = (Math.floor(studentgive * 1.5));
-            maximum = (maximum + studentgive);
-            update();
-            var randomadd = Math.floor(Math.random() * (theinventors.length));
-            document.getElementById("status").innerHTML = theinventors[randomadd];
+              var insaneness = Math.floor(Math.random() * 6);
+              dong = (dong - studentprice);
+              priceincreaseforstudents = (priceincreaseforstudents * 3);
+              studentprice = (studentprice + priceincreaseforstudents);
+              if (insaneness !== 2) {
+                studentgive = (Math.floor(studentgive * 1.5));
+                maximum = (maximum + studentgive);
+                var randomadd = Math.floor(Math.random() * (theinventors.length));
+                document.getElementById("status").innerHTML = theinventors[randomadd];
+              } else {
+                maximum = (maximum + (studentgive * (-1)));
+                var randomadd = Math.floor(Math.random() * (teachers.length));
+                document.getElementById("status").innerHTML = teachers[randomadd];
+              }
+              
+              update();
           }
         }
       </script>
@@ -349,6 +358,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.5.2</small>
+    <small style="display:block">bill's adventure 0.5.3</small>
   </body>
 </html>
