@@ -140,6 +140,9 @@
         }
         
         function update() {
+          if (turn === 417) {
+            location.replace("win")
+          }
           turn = (turn + 1);
           document.getElementById("ppcounter").innerHTML = "popularity points (pp): " + pp;
            document.getElementById("turncounter").innerHTML = "turns: " + turn;
@@ -311,11 +314,13 @@
     <p id="ppcounter">popularity points (pp): 0</p>
     <p style="display:none" id="dongcounter">vietnamese dong: 0</p>
     <br>
-    <p id="status">get bill to pope in 100 turns</p>
+    <p id="status">get bill to pope in 417 turns</p>
     <br>
     <button id="campaignbutton" onclick="campaign()">campaign for bill</button>
     <hr />
     <h3>pp shop</h3>
+    <button id="win">make bill pope</button>
+    <br>
     <button id="door" onclick="doortodoor()">campaign door to door (10 pp)</button>
     <br>
     <p style="display:block"> </p>
@@ -358,6 +363,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.5.3</small>
+    <small style="display:block">bill's adventure 0.6.1</small>
   </body>
 </html>
