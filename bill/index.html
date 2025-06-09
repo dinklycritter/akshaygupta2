@@ -303,18 +303,21 @@
               
               update();
           }
+        }
 
           function ascend() {
             if (pp >= 10000) {
-              location.replace("win")
+              pp = (pp - 10000);
+              location.replace("win");
             }
           }
-        }
+        
       </script>
   </head>
   <body>
     <h1>bill for pope</h1>
     <img src="billforpope.png" title="mwah bill" style="width:124px">
+    <img src="billforpresident.png" title="mwah bill" style="width:124px;display:none">
 
     <p id="turncounter">turns: 0</p>
     <p id="ppcounter">popularity points (pp): 0</p>
@@ -370,6 +373,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.6.6</small>
+    <small style="display:block">bill's adventure 0.6.8</small>
   </body>
 </html>
