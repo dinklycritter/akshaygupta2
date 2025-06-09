@@ -303,6 +303,12 @@
               
               update();
           }
+
+          function ascend() {
+            if (pp >= 10000) {
+              location.replace("win")
+            }
+          }
         }
       </script>
   </head>
@@ -323,6 +329,9 @@
     <br>
     <p style="display:block"> </p>
     <button id="sell" onclick="sellfordong()">sell all your followers (2 dong per 1 pp)</button>
+    <br>
+    <p style="display:block"> </p>
+    <button id="win" onclick="ascend()">ascend to papacy (10000 pp)</button>
     <hr />
     
     <!dong shop>
@@ -361,6 +370,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 0.6.4</small>
+    <small style="display:block">bill's adventure 0.6.5</small>
   </body>
 </html>
