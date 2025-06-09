@@ -104,7 +104,7 @@
             document.getElementById("boughtstock").innerHTML = `${currentstockname}<br/>quality: ${stockqualities[currentstockquality]}<br><br><button onclick="sellstock()">sell (${currentstockprice} dong)</button>`;
             if (currentstockquality === 4) {
               let dividendnombre = Math.floor(Math.random() * dividend.length);
-              dong = (dong + (currentstockprice/5));
+              dong = (dong + (Math.floor(currentstockprice/5)));
               document.getElementById("stockstatus").innerHTML = "stock-o-meter: " + dividend[dividendnombre];
             }
           }
@@ -373,6 +373,6 @@
     <a href="mailto:2landonf2@gmail.com">send me an email</a>
     <a href="https://dinklycritter.github.io/akshaygupta2/cool/" title="neato">cool</a>
     <br><br>
-    <small style="display:block">bill's adventure 1.0.2</small>
+    <small style="display:block">bill's adventure 1.0.3</small>
   </body>
 </html>
