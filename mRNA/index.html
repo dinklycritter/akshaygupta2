@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+    </style>
+    <title>mRNA thing</title>
+      <script>
+        let turn = 0; let first = 0; let second = 0; let third = 0;
+
+        function determinefirst() {
+          if (first == 1 && second == 1 && third == 1) { document.getElementById("display").innerHTML = "k"; }
+          if (first == 1 && second == 1 && third == 2) { document.getElementById("display").innerHTML = "k"; }
+
+          if (first == 1 && second == 1 && third == 3) { document.getElementById("display").innerHTML = "n"; }
+          if (first == 1 && second == 1 && third == 4) { document.getElementById("display").innerHTML = "n"; }
+
+          if (first == 1 && second == 2 && third == 1) { document.getElementById("display").innerHTML = "r"; }
+          if (first == 1 && second == 2 && third == 2) { document.getElementById("display").innerHTML = "r"; }
+
+          if (first == 1 && second == 2 && third == 3) { document.getElementById("display").innerHTML = "c"; }
+          if (first == 1 && second == 2 && third == 4) { document.getElementById("display").innerHTML = "c"; }
+
+          if (first == 1 && second == 3) { document.getElementById("display").innerHTML = "t"; }
+
+          if (first == 1 && second == 4 && third == 2) { document.getElementById("display").innerHTML = "m"; }
+          
+          if (first == 1 && second == 4 && third == 1) { document.getElementById("display").innerHTML = "i"; }
+          if (first == 1 && second == 4 && third == 4) { document.getElementById("display").innerHTML = "i"; }
+          if (first == 1 && second == 4 && third == 3) { document.getElementById("display").innerHTML = "i"; }
+
+          if (first == 2 && second == 1 && third == 1) { document.getElementById("display").innerHTML = "e"; }
+          if (first == 2 && second == 1 && third == 2) { document.getElementById("display").innerHTML = "e"; }
+
+          if (first == 2 && second == 1 && third == 3) { document.getElementById("display").innerHTML = "d"; }
+          if (first == 2 && second == 1 && third == 4) { document.getElementById("display").innerHTML = "d"; }
+
+          if (first == 2 && second == 2) { document.getElementById("display").innerHTML = "g"; }
+
+          if (first == 2 && second == 3) { document.getElementById("display").innerHTML = "a"; }
+
+          if (first == 2 && second == 4) { document.getElementById("display").innerHTML = "v"; }
+
+          if (first == 3 && second == 1 && third == 1) { document.getElementById("display").innerHTML = "q"; }
+          if (first == 3 && second == 1 && third == 2) { document.getElementById("display").innerHTML = "q"; }
+
+          if (first == 3 && second == 1 && third == 3) { document.getElementById("display").innerHTML = "h"; }
+          if (first == 3 && second == 1 && third == 4) { document.getElementById("display").innerHTML = "h"; }
+
+          if (first == 3 && second == 2) { document.getElementById("display").innerHTML = "r"; }
+
+          if (first == 3 && second == 3) { document.getElementById("display").innerHTML = "p"; }
+
+          if (first == 3 && second == 4) { document.getElementById("display").innerHTML = "l"; }
+
+          if (first == 4 && second == 1 && third == 1) { document.getElementById("display").innerHTML = "(stop)"; }
+          if (first == 4 && second == 1 && third == 2) { document.getElementById("display").innerHTML = "(stop)"; }
+
+          if (first == 4 && second == 1 && third == 3) { document.getElementById("display").innerHTML = "y"; }
+          if (first == 4 && second == 1 && third == 4) { document.getElementById("display").innerHTML = "y"; }
+
+          if (first == 4 && second == 2 && third == 1) { document.getElementById("display").innerHTML = "(stop)"; }
+
+          if (first == 4 && second == 2 && third == 2) { document.getElementById("display").innerHTML = "w"; }
+
+          if (first == 4 && second == 2 && third == 3) { document.getElementById("display").innerHTML = "c"; }
+          if (first == 4 && second == 2 && third == 4) { document.getElementById("display").innerHTML = "c"; }
+
+          if (first == 4 && second == 3) { document.getElementById("display").innerHTML = "s"; }
+
+          if (first == 4 && second == 4 && third == 1) { document.getElementById("display").innerHTML = "l"; }
+          if (first == 4 && second == 4 && third == 2) { document.getElementById("display").innerHTML = "l"; }
+          
+          if (first == 4 && second == 4 && third == 3) { document.getElementById("display").innerHTML = "f"; }
+          if (first == 4 && second == 4 && third == 4) { document.getElementById("display").innerHTML = "f"; }
+        }
+        
+        function clicka() {
+          if (turn == 0) {
+            
+            document.getElementById("display").innerHTML = "";
+          }
+          document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + "A";
+
+          turn = (turn + 1);
+          if (turn == 1) {
+            first = 1;
+          }
+          if (turn == 2) {
+            second = 1;
+          }
+          if (turn == 3) {
+            third = 1;
+            determinefirst();
+            turn = 0
+          }
+        }
+
+        function clickg() {
+          if (turn == 0) {
+            
+            document.getElementById("display").innerHTML = "";
+          }
+          document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + "G";
+
+          turn = (turn + 1);
+          if (turn == 1) {
+            first = 2;
+          }
+          if (turn == 2) {
+            second = 2;
+          }
+          if (turn == 3) {
+            third = 2;
+            determinefirst();
+            turn = 0
+          }
+        }
+
+        function clickc() {
+          if (turn == 0) {
+            
+            document.getElementById("display").innerHTML = "";
+          }
+          document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + "C";
+
+          turn = (turn + 1);
+          if (turn == 1) {
+            first = 3;
+          }
+          if (turn == 2) {
+            second = 3;
+          }
+          if (turn == 3) {
+            third = 3;
+            determinefirst();
+            turn = 0
+          }
+        }
+
+        function clicku() {
+          if (turn == 0) {
+            document.getElementById("display").innerHTML = "";
+          }
+          document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + "U";
+
+          turn = (turn + 1);
+          if (turn == 1) {
+            first = 4;
+          }
+          if (turn == 2) {
+            second = 4;
+          }
+          if (turn == 3) {
+            third = 4;
+            determinefirst();
+            turn = 0
+          }
+        }
+
+        function insertin() {
+          document.getElementById("final").innerHTML = document.getElementById("final").innerHTML + document.getElementById("display").innerHTML;
+        }
+      </script>
+  </head>
+  <body>
+    <h1>mRNA amino acid codon decoder thing idk biology</h1>
+    <p id="edfefesd">a pairs with u, t pairs with a, c pairs with g, g pairs with c. After three characters, the corresponding amino acid letter will appear in lowercase</p>
+    <h4 id="display"></h4>
+    <button id="a" onclick="clicka()">t</button>
+    <button id="g" onclick="clickg()">c</button>
+    <button id="c" onclick="clickc()">g</button>
+    <button id="u" onclick="clicku()">a</button>
+    <br>
+    <button onclick="insertin()">insert</button>
+    <p id="final"></p>
+</html>
