@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>rodentia taxonomic order <333</title>
-
+    
     <style>
       
       #stickybar {
@@ -32,9 +32,9 @@
         display: block;
         color: #ffffff;
         text-align: center;
-        padding: 14px 16px;
+        padding: 11px 16px;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 20px;
       }
 
       #nutriaimage {
@@ -49,7 +49,8 @@
         text-align: center;
         margin-top: 10px;
         text-decoration: none;
-        padding: 5px 5px;
+        padding: 20px 5px;
+        font-size: 17px;
 
         border-width: 2px;
         border-style: double;
@@ -57,20 +58,41 @@
       }
       
     </style>
+
+    <script>
+      //points should be nutria currency
+      //be able to click the nutria at the start, but slowly nerf clicking in favor of afk auto gen for different minigames
+      //send nutria out on expeditions to different habitats, unlock related species
+      //loot crates for fossils (have choices on different genus fossils, fossils add to auto)
+      //stock market for rodentia diet
+
+      var np = 0;
+
+      function updatescreen() {
+        document.getElementById("boughtstock").innerHTML = "nutria points: " + np;
+      }
+
+      function clicknutria() {
+        np++;
+        updatescreen();
+      }
+    </script>
+    
   </head>
   <body>
     
     <div id="stickybar">
       <b id="titlea">nutria game</b>
+      <a id="jpdisplay">nutria points: 0</a>
     </div>
-    
-    <img id="nutriaimage" src="nutriapng.png" alt="nutria" title="myocaster coypus">
+
+    <img id="nutriaimage" src="nutriapng.png" alt="nutria" title="myocaster coypus" onclick="clicknutria()">
 
     <div id="options">
-      <a id="options">hey guys</a>
-      <a id="options">hey guys2</a>
-      <a id="options">hey guys3</a>
-      <a id="options">hey guys4</a>
+      <a id="options">buy nutria</a>
+      <a id="options">buy habitat</a>
+      <a id="options">buy fossils</a>
+      <a id="options">buy related species</a>
     </div>
 
     <div id="bottombar">
