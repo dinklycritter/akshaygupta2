@@ -64,12 +64,13 @@
       }
 
       .options .q:hover {
-        background-color: grey;
+        background-color: silver;
       }
 
       #popups a {
         font-size: 20px;
-        webkit-text-stroke: 4px white;
+        -webkit-text-stroke: 4px white;
+        paint-order: stroke fill;
         position: absolute;
         top: 10%;
         left: 10%;
@@ -104,14 +105,13 @@
           if (nppsamount > 0) {
             np = np + nppsamount;
       
-            // Only show the popup if the tab is visible (prevents lag from thousands of hidden popups)
             if (!document.hidden) {
               makepopup(nppsamount);
             }
           }
         }
       
-        lastupdatetime = currenttime; // Update the clock for the next tick
+        lastupdatetime = currenttime;
         updatescreen();
       }, 1000);
       
