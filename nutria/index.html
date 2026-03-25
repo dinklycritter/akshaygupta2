@@ -49,6 +49,10 @@
         filter: brightness(75%);
       }
 
+      #nutriaimage:active {
+        filter: brightness(100%);
+      }
+
       .options .q {
         display: flow-root;
         text-align: center;
@@ -75,6 +79,19 @@
         top: 10%;
         left: 10%;
       }
+
+      #worldmap {
+        width: 800px;
+        height:404px;
+        padding: 10px 10px;
+        display: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #stickybar #multdisplay {
+        display: none;
+      }
       
     </style>
 
@@ -85,10 +102,9 @@
       //loot crates for fossils (have choices on different genus fossils, fossils add to auto)
       //stock market for rodentia diet
 
-      var np = 0; var nutrias = 0;
-      var nutriaprice = 40;
-
-      var lastupdatetime = Date.now();
+      var np = 0; var nutrias = 0; var multi = 1;
+      var nutriaprice = 40; const mapprice = 120; const treeratprice = 340;
+      const pricehike = 1.15;
 
       function updatescreen() {
         document.getElementById("jpdisplay").innerHTML = "nutria points: " + np;
@@ -97,21 +113,18 @@
       }
 
       setInterval(function () {
-        var currenttime = Date.now();
         
         if (nutrias > 0) {
-          var nppsamount = Math.floor(nutrias * ((currenttime - lastupdatetime) / 1000));
+          var nppsamount = Math.floor(nutrias);
           
           if (nppsamount > 0) {
-            np = np + nppsamount;
-      
+
             if (!document.hidden) {
               makepopup(nppsamount);
+              np = np + nppsamount;
             }
           }
         }
-      
-        lastupdatetime = currenttime;
         updatescreen();
       }, 1000);
       
@@ -134,14 +147,36 @@
 
       function clicknutria() {
         np++;
-        updatescreen();
+        updatescreen();nutria
       }
 
       function buynutria() {
         if (np >= nutriaprice) {
           np = np - nutriaprice;
-          nutriaprice = Math.floor(nutriaprice * 1.15);
+          nutriaprice = Math.floor(nutriaprice * pricehike);
           nutrias++;
+          updatescreen();
+        }
+      }
+
+      function buymap() {
+        if (np >= mapprice) {
+          np = np - mapprice;
+          document.getElementById("buymap").style.display = "none";
+          document.getElementById("worldmap").style.display = "block";
+
+          updatescreen();
+        }
+      }
+
+      function buytreerat() {
+        if (np >= treeratprice) {
+          np = np - treeratprice;
+          multi = multi + 0.5;
+          document.getElementById("buyspeciesbutton").style.display = "none";
+          document.getElementById("buyspeciesbutton2").style.display = "block";
+          document.getElementById("nutriaimage").src = "nutriatreerat.png";
+
           updatescreen();
         }
       }
@@ -154,6 +189,7 @@
       <b id="titlea">nutria game</b>
       <a id="jpdisplay">nutria points: 0</a>
       <a id="nutriadisplay">nutrias: 0</a>
+      <a id="multdisplay">mult: 1</a>
     </div>
 
     <div onclick="clicknutria()">
@@ -165,10 +201,13 @@
 
     <div class="options">
       <a id="buynutriabutton" class="q" onclick="buynutria()">buy a nutria (40 np)</a>
-      <a id="buyhabitatbutton" class="q">buy habitat</a>
-      <a id="buyfossilsbutton" class="q">buy fossils</a>
-      <a id="buyspeciesbutton" class="q">buy related species</a>
+      <a id="buymap" class="q" onclick="buymap()">unlock world map (120 np)</a>
+      <a id="buyfossilsbutton" class="q">buy fossils (20 nutria)</a>
+      <a id="buyspeciesbutton" class="q" onclick="buytreerat()">unlock painted tree rats (800 np)</a>
+      <a id="buyspeciesbutton2" class="q" onclick="buytreerat()" style="display:none">unlock armored rats (6400 np)</a>
     </div>
+
+    <img id="worldmap" src="worldmap.PNG" alt="world map">
 
     <div id="bottombar">
       <a href="https://dinklycritter.github.io/akshaygupta2/">return to akshay</a>
