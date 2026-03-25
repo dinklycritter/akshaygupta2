@@ -69,6 +69,7 @@
 
       #popups a {
         font-size: 20px;
+        webkit-text-stroke: 4px white;
         position: absolute;
         top: 10%;
         left: 10%;
@@ -86,6 +87,8 @@
       var np = 0; var nutrias = 0;
       var nutriaprice = 40;
 
+      var lastupdatetime = Date.now();
+
       function updatescreen() {
         document.getElementById("jpdisplay").innerHTML = "nutria points: " + np;
         document.getElementById("nutriadisplay").innerHTML = "nutrias: " + nutrias;
@@ -93,31 +96,41 @@
       }
 
       setInterval(function () {
-        np = np + nutrias;
-        var popup = document.createElement("a");
-
+        var currenttime = Date.now();
+        
         if (nutrias > 0) {
-          popup.innerHTML = "+" + (nutrias) + " np";
-          document.getElementById("popups").appendChild(popup);
-        }
-
-        var goal = 20
-        id = null;
-        clearInterval(id);
-        id = setInterval(frame, 30);
-        function frame() {
-          if (goal < 0.2) {
-            clearInterval(id);
-            document.getElementById("popups").removeChild(document.getElementById("popups").firstChild);
-            popup = null;
-          } else {
-            popup.style.top = (popup.getBoundingClientRect().top + goal) + "px";
-            goal = goal/1.2;
+          var nppsamount = Math.floor(nutrias * ((currenttime - lastupdatetime) / 1000));
+          
+          if (nppsamount > 0) {
+            np = np + nppsamount;
+      
+            // Only show the popup if the tab is visible (prevents lag from thousands of hidden popups)
+            if (!document.hidden) {
+              makepopup(nppsamount);
+            }
           }
         }
-        
+      
+        lastupdatetime = currenttime; // Update the clock for the next tick
         updatescreen();
       }, 1000);
+      
+      function makepopup(amount) {
+        var popup = document.createElement("a");
+        popup.innerHTML = "+" + amount + " np";
+        document.getElementById("popups").appendChild(popup);
+      
+        var goal = 20;
+        var loop = setInterval(function() {
+          if (goal < 0.2) {
+            clearInterval(loop);
+            document.getElementById("popups").removeChild(document.getElementById("popups").firstChild);
+          } else {
+            popup.style.top = (popup.getBoundingClientRect().top + goal) + "px";
+            goal = goal / 1.2;
+          }
+        }, 30);
+      }
 
       function clicknutria() {
         np++;
