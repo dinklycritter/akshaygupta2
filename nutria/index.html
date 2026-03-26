@@ -40,9 +40,9 @@
       #nutriaimage {
         width: 500px;
         height:375px;
-        float: left;
         padding: 10px 10px;
         cursor: pointer;
+        float: left;
       }
 
       #nutriaimage:hover {
@@ -53,8 +53,13 @@
         filter: brightness(100%);
       }
 
+      .options {
+        float: left;
+        width: calc(100% - 535px);
+      }
+
       .options .q {
-        display: flow-root;
+        display: block;
         text-align: center;
         margin-top: 10px;
         text-decoration: none;
@@ -92,6 +97,10 @@
       #stickybar #multdisplay {
         display: none;
       }
+
+      hr {
+         clear: both
+      }
       
     </style>
 
@@ -110,12 +119,13 @@
         document.getElementById("jpdisplay").innerHTML = "nutria points: " + np;
         document.getElementById("nutriadisplay").innerHTML = "nutrias: " + nutrias;
         document.getElementById("buynutriabutton").innerHTML = "buy a nutria (" + nutriaprice + " np)";
+        document.getElementById("multidisplay").innerHTML = "multi: " + multi;
       }
 
       setInterval(function () {
         
         if (nutrias > 0) {
-          var nppsamount = Math.floor(nutrias);
+          var nppsamount = Math.floor(nutrias * multi);
           
           if (nppsamount > 0) {
 
@@ -164,6 +174,7 @@
           np = np - mapprice;
           document.getElementById("buymap").style.display = "none";
           document.getElementById("worldmap").style.display = "block";
+          document.getElementById("worldmapseparator").style.display = "flex";
 
           updatescreen();
         }
@@ -176,6 +187,7 @@
           document.getElementById("buyspeciesbutton").style.display = "none";
           document.getElementById("buyspeciesbutton2").style.display = "block";
           document.getElementById("nutriaimage").src = "nutriatreerat.png";
+          document.getElementById("multidisplay").style.display = "block";
 
           updatescreen();
         }
@@ -207,6 +219,7 @@
       <a id="buyspeciesbutton2" class="q" onclick="buytreerat()" style="display:none">unlock armored rats (6400 np)</a>
     </div>
 
+    <hr id="worldmapseparator" style="display:none;" />
     <img id="worldmap" src="worldmap.PNG" alt="world map">
 
     <div id="bottombar">
